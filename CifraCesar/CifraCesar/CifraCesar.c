@@ -11,38 +11,59 @@
 #include <stdlib.h>
 #include <sys/time.h>
 
-#define ASC2FIRSTCHAR 32
-#define ASC2MAXCHAR 126
+#define ALPHABETUPPERFIRSTCHAR 65 //Correspods to letter "A" in ASC2 table
+#define ALPHABETLOWERFIRSTCHAR 97 //Correspods to letter "a" in ASC2 table
 
-char* encryptWithCaesarCipher(int encryptKey, char* menssageToEncrypt){
+#define ALPHABETRANGE 25
+
+char* encryptWithCaesarCipher(int encryptKey, char* messageToEncrypt){
     
     
-    int menssageToEncryptLength = (int)strlen(menssageToEncrypt);
+    int menssageToEncryptLength = (int)strlen(messageToEncrypt);
     
     char* encryptedMessage = malloc(sizeof (char)*(menssageToEncryptLength+1));
     
     for (int i = 0; i < menssageToEncryptLength; i++) {
         
-        encryptedMessage[i] = ((menssageToEncrypt[i]+encryptKey)%ASC2MAXCHAR)-ASC2FIRSTCHAR;
+        if( messageToEncrypt[i] >= 'a' && messageToEncrypt[i] <= 'z'){
+            encryptedMessage[i] = ((messageToEncrypt[i]-ALPHABETLOWERFIRSTCHAR+encryptKey)%ALPHABETRANGE)+ALPHABETLOWERFIRSTCHAR;
 
+           }else
+                if (messageToEncrypt[i] >= 'A' && messageToEncrypt[i] <= 'Z'){
+                    encryptedMessage[i] = ((messageToEncrypt[i]-ALPHABETUPPERFIRSTCHAR+encryptKey)%ALPHABETRANGE)+ALPHABETUPPERFIRSTCHAR;
+                }else{
+                    
+                    encryptedMessage[i] = messageToEncrypt[i];
+                }
+
+        
     }
-
 
     return encryptedMessage;
 }
 
-char* decryptWithCaesarCipher(int decryptKey, char* menssageToDecrypt){
+char* decryptWithCaesarCipher(int decryptKey, char* messageToDecrypt){
     
 
-    int menssageToDecryptLength = (int)strlen(menssageToDecrypt);
+    int menssageToDecryptLength = (int)strlen(messageToDecrypt);
     
     char* decryptedMessage = malloc(sizeof (char)*(menssageToDecryptLength+1));
     
     for (int i = 0; i < menssageToDecryptLength; i++) {
-
-        decryptedMessage[i] = ((ASC2MAXCHAR+menssageToDecrypt[i]-decryptKey)%ASC2MAXCHAR)+ASC2FIRSTCHAR;
-    }
-
+        
+        if( messageToDecrypt[i] >= 'a' && messageToDecrypt[i] <= 'z'){
+           decryptedMessage[i] = ((messageToDecrypt[i]-ALPHABETLOWERFIRSTCHAR-decryptKey)%ALPHABETRANGE)+ALPHABETLOWERFIRSTCHAR;
+           }else
+           if (messageToDecrypt[i] >= 'A' && messageToDecrypt[i] <= 'Z'){
+               decryptedMessage[i] = ((messageToDecrypt[i]-ALPHABETUPPERFIRSTCHAR-decryptKey)%ALPHABETRANGE)+ALPHABETUPPERFIRSTCHAR;
+           }else{
+               
+               decryptedMessage[i] = messageToDecrypt[i];
+           }
+        
+        
+        }
+    
     return decryptedMessage;
 }
 
@@ -53,7 +74,7 @@ void hackingCaesarCipherWithBruteForce(char* messageToHack){
     clock_t start_time;
     start_time = clock();
     
-    for (int i = 0; i <=126; i++) {
+    for (int i = 0; i <=26; i++) {
         
         hackedMessageTest = decryptWithCaesarCipher(i, messageToHack);
         printf("Chave Testada = %d,\nResultado = %s",i,hackedMessageTest);
@@ -75,8 +96,7 @@ int main(int argc, const char * argv[]) {
     
     char *encryptedMessage;
     
-    encryptedMessage = encryptWithCaesarCipher(150,text);
-    
+    encryptedMessage = encryptWithCaesarCipher(2,text);
     hackingCaesarCipherWithBruteForce(encryptedMessage);
     
     
