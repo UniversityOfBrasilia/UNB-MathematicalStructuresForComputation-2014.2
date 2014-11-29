@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A40B30851A29DBD600EC04A6 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A40B30841A29DBD600EC04A6 /* main.c */; };
+		A40B30851A29DBD600EC04A6 /* CifraCesar.c in Sources */ = {isa = PBXBuildFile; fileRef = A40B30841A29DBD600EC04A6 /* CifraCesar.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		A40B30811A29DBD600EC04A6 /* CifraCesar */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CifraCesar; sourceTree = BUILT_PRODUCTS_DIR; };
-		A40B30841A29DBD600EC04A6 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		A40B30841A29DBD600EC04A6 /* CifraCesar.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CifraCesar.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 		A40B30831A29DBD600EC04A6 /* CifraCesar */ = {
 			isa = PBXGroup;
 			children = (
-				A40B30841A29DBD600EC04A6 /* main.c */,
+				A40B30841A29DBD600EC04A6 /* CifraCesar.c */,
 			);
 			path = CifraCesar;
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A40B30851A29DBD600EC04A6 /* main.c in Sources */,
+				A40B30851A29DBD600EC04A6 /* CifraCesar.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
