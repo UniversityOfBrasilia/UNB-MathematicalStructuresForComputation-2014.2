@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A40B30851A29DBD600EC04A6 /* CifraCesar.c in Sources */ = {isa = PBXBuildFile; fileRef = A40B30841A29DBD600EC04A6 /* CifraCesar.c */; };
-		A460CA241A3373F00042E27E /* VigenereCipher.c in Sources */ = {isa = PBXBuildFile; fileRef = A460CA221A3373F00042E27E /* VigenereCipher.c */; };
+		A460CA321A3374AF0042E27E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A460CA311A3374AF0042E27E /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A40B307F1A29DBD600EC04A6 /* CopyFiles */ = {
+		A460CA2C1A3374AF0042E27E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,13 +23,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A40B30811A29DBD600EC04A6 /* CifraCesar */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CifraCesar; sourceTree = BUILT_PRODUCTS_DIR; };
-		A40B30841A29DBD600EC04A6 /* CifraCesar.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CifraCesar.c; sourceTree = "<group>"; };
-		A460CA221A3373F00042E27E /* VigenereCipher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VigenereCipher.c; sourceTree = "<group>"; };
+		A460CA2E1A3374AF0042E27E /* CipherAnalysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CipherAnalysis; sourceTree = BUILT_PRODUCTS_DIR; };
+		A460CA311A3374AF0042E27E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		A460CA381A3374C80042E27E /* CifraCesar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CifraCesar.c; sourceTree = "<group>"; };
+		A460CA391A3374C80042E27E /* VigenereCipher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VigenereCipher.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A40B307E1A29DBD600EC04A6 /* Frameworks */ = {
+		A460CA2B1A3374AF0042E27E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,96 +40,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A40B30781A29DBD600EC04A6 = {
+		A460CA251A3374AF0042E27E = {
 			isa = PBXGroup;
 			children = (
-				A40B30831A29DBD600EC04A6 /* CifraCesar */,
-				A40B30821A29DBD600EC04A6 /* Products */,
+				A460CA301A3374AF0042E27E /* CipherAnalysis */,
+				A460CA2F1A3374AF0042E27E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A40B30821A29DBD600EC04A6 /* Products */ = {
+		A460CA2F1A3374AF0042E27E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A40B30811A29DBD600EC04A6 /* CifraCesar */,
+				A460CA2E1A3374AF0042E27E /* CipherAnalysis */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A40B30831A29DBD600EC04A6 /* CifraCesar */ = {
+		A460CA301A3374AF0042E27E /* CipherAnalysis */ = {
 			isa = PBXGroup;
 			children = (
-				A40B30841A29DBD600EC04A6 /* CifraCesar.c */,
-				A460CA221A3373F00042E27E /* VigenereCipher.c */,
+				A460CA311A3374AF0042E27E /* main.c */,
+				A460CA381A3374C80042E27E /* CifraCesar.c */,
+				A460CA391A3374C80042E27E /* VigenereCipher.c */,
 			);
-			path = CifraCesar;
+			path = CipherAnalysis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A40B30801A29DBD600EC04A6 /* CifraCesar */ = {
+		A460CA2D1A3374AF0042E27E /* CipherAnalysis */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A40B30881A29DBD600EC04A6 /* Build configuration list for PBXNativeTarget "CifraCesar" */;
+			buildConfigurationList = A460CA351A3374AF0042E27E /* Build configuration list for PBXNativeTarget "CipherAnalysis" */;
 			buildPhases = (
-				A40B307D1A29DBD600EC04A6 /* Sources */,
-				A40B307E1A29DBD600EC04A6 /* Frameworks */,
-				A40B307F1A29DBD600EC04A6 /* CopyFiles */,
+				A460CA2A1A3374AF0042E27E /* Sources */,
+				A460CA2B1A3374AF0042E27E /* Frameworks */,
+				A460CA2C1A3374AF0042E27E /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CifraCesar;
-			productName = CifraCesar;
-			productReference = A40B30811A29DBD600EC04A6 /* CifraCesar */;
+			name = CipherAnalysis;
+			productName = CipherAnalysis;
+			productReference = A460CA2E1A3374AF0042E27E /* CipherAnalysis */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A40B30791A29DBD600EC04A6 /* Project object */ = {
+		A460CA261A3374AF0042E27E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = TMB;
 				TargetAttributes = {
-					A40B30801A29DBD600EC04A6 = {
+					A460CA2D1A3374AF0042E27E = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
-			buildConfigurationList = A40B307C1A29DBD600EC04A6 /* Build configuration list for PBXProject "CifraCesar" */;
+			buildConfigurationList = A460CA291A3374AF0042E27E /* Build configuration list for PBXProject "CipherAnalysis" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = A40B30781A29DBD600EC04A6;
-			productRefGroup = A40B30821A29DBD600EC04A6 /* Products */;
+			mainGroup = A460CA251A3374AF0042E27E;
+			productRefGroup = A460CA2F1A3374AF0042E27E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A40B30801A29DBD600EC04A6 /* CifraCesar */,
+				A460CA2D1A3374AF0042E27E /* CipherAnalysis */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A40B307D1A29DBD600EC04A6 /* Sources */ = {
+		A460CA2A1A3374AF0042E27E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A40B30851A29DBD600EC04A6 /* CifraCesar.c in Sources */,
-				A460CA241A3373F00042E27E /* VigenereCipher.c in Sources */,
+				A460CA321A3374AF0042E27E /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A40B30861A29DBD600EC04A6 /* Debug */ = {
+		A460CA331A3374AF0042E27E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -169,7 +169,7 @@
 			};
 			name = Debug;
 		};
-		A40B30871A29DBD600EC04A6 /* Release */ = {
+		A460CA341A3374AF0042E27E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -203,42 +203,46 @@
 			};
 			name = Release;
 		};
-		A40B30891A29DBD600EC04A6 /* Debug */ = {
+		A460CA361A3374AF0042E27E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		A40B308A1A29DBD600EC04A6 /* Release */ = {
+		A460CA371A3374AF0042E27E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A40B307C1A29DBD600EC04A6 /* Build configuration list for PBXProject "CifraCesar" */ = {
+		A460CA291A3374AF0042E27E /* Build configuration list for PBXProject "CipherAnalysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A40B30861A29DBD600EC04A6 /* Debug */,
-				A40B30871A29DBD600EC04A6 /* Release */,
+				A460CA331A3374AF0042E27E /* Debug */,
+				A460CA341A3374AF0042E27E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A40B30881A29DBD600EC04A6 /* Build configuration list for PBXNativeTarget "CifraCesar" */ = {
+		A460CA351A3374AF0042E27E /* Build configuration list for PBXNativeTarget "CipherAnalysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A40B30891A29DBD600EC04A6 /* Debug */,
-				A40B308A1A29DBD600EC04A6 /* Release */,
+				A460CA361A3374AF0042E27E /* Debug */,
+				A460CA371A3374AF0042E27E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A40B30791A29DBD600EC04A6 /* Project object */;
+	rootObject = A460CA261A3374AF0042E27E /* Project object */;
 }

@@ -16,6 +16,26 @@
 
 #define ALPHABETRANGE 25
 
+int getKeyValueByChar(char key){
+    
+    int keyValue;
+    
+    if( key >= 'a' && key <= 'z'){
+        keyValue = key - 65;
+        
+    }else
+        if (key >= 'A' && key <= 'Z'){
+            keyValue = key - 97;
+            
+        }else{
+            
+            keyValue = key;
+        }
+    
+    return keyValue;
+    
+}
+
 char* encryptWithCaesarCipher(int encryptKey, char* messageToEncrypt){
     
     
@@ -77,7 +97,7 @@ void hackingCaesarCipherWithBruteForce(char* messageToHack){
     for (int i = 0; i <= ALPHABETRANGE; i++) {
         
         hackedMessageTest = decryptWithCaesarCipher(i, messageToHack);
-        printf("Chave Testada = %d,\nResultado = %s",i,hackedMessageTest);
+        printf("\nChave Testada = %d,\nResultado = %s",i,hackedMessageTest);
         printf("\n\n=========================================================\n\n");
 
 
@@ -85,9 +105,24 @@ void hackingCaesarCipherWithBruteForce(char* messageToHack){
     
     double time_in_seconds = (clock() - start_time) / (double)CLOCKS_PER_SEC;
 
-    printf("A quebra demorou %.10f segundos",time_in_seconds);
+    printf("\nA quebra demorou %.10f segundos",time_in_seconds);
 
     
 }
 
+void caesarCipherInterface(char* text){
+    
+    char key;
+    printf("\nEntre com a chave de criptografia: ");
+    fflush(stdin);
+    scanf("%c",&key);
+    
+    int keyValue = getKeyValueByChar(key);
+    
+    char *encryptedMessage;
+    
+    encryptedMessage = encryptWithCaesarCipher(keyValue,text);
+    hackingCaesarCipherWithBruteForce(encryptedMessage);
+    
+}
 
