@@ -21,11 +21,11 @@ int getKeyValueByChar(char key){
     int keyValue;
     
     if( key >= 'a' && key <= 'z'){
-        keyValue = key - 65;
+        keyValue = key - ALPHABETLOWERFIRSTCHAR;
         
     }else
         if (key >= 'A' && key <= 'Z'){
-            keyValue = key - 97;
+            keyValue = key - ALPHABETUPPERFIRSTCHAR;
             
         }else{
             
@@ -97,7 +97,7 @@ void hackingCaesarCipherWithBruteForce(char* messageToHack){
     for (int i = 0; i <= ALPHABETRANGE; i++) {
         
         hackedMessageTest = decryptWithCaesarCipher(i, messageToHack);
-        printf("\nChave Testada = %d,\nResultado = %s",i,hackedMessageTest);
+        printf("\nChave Testada = %c,\nResultado = %s",i+ALPHABETUPPERFIRSTCHAR,hackedMessageTest);
         printf("\n\n=========================================================\n\n");
 
 
@@ -105,7 +105,7 @@ void hackingCaesarCipherWithBruteForce(char* messageToHack){
     
     double time_in_seconds = (clock() - start_time) / (double)CLOCKS_PER_SEC;
 
-    printf("\nA quebra demorou %.10f segundos",time_in_seconds);
+    printf("\nA quebra demorou %.10f segundos\n",time_in_seconds);
 
     
 }
