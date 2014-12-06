@@ -33,15 +33,44 @@ char* encryptWithVigenereCipher(char* key, char* messageToEncrypt){
     return encryptedMessage;
 }
 
-void vigenereCipherInterface(){
+char* decryptWithVigenereCipher(char* key, char* messageToDecrypt){
+    
+    int keyLength = (int)strlen(key);
+    int messageToDecryptLength = (int)strlen(messageToDecrypt);
+    
+    int currentKey;
+    char currentChar;
+    char *decryptedMessage = malloc(sizeof(char) * messageToDecryptLength);
+    
+    for (int messageCharPosition = 0, keyCharPosition = 0; messageCharPosition < messageToDecryptLength; messageCharPosition++,keyCharPosition++) {
+        
+        if (keyCharPosition == keyLength) {
+            keyCharPosition = 0;
+        }
+        
+        currentKey = getKeyValueByChar(key[keyCharPosition]);
+        currentChar = *decryptWithCaesarCipher(currentKey, &messageToDecrypt[messageCharPosition]);
+        decryptedMessage[messageCharPosition] = currentChar;
+        
+    }
+    
+    return decryptedMessage;
+}
+
+
+void vigenereCipherInterface(char *message){
     
     char key[KEYSIZE];
     printf("\nEntre com a chave de criptografia: ");
     fflush(stdin);
     scanf("%s",key);
     
-    char* teste = malloc(sizeof(char) * 120);
     
-    teste = encryptWithVigenereCipher(key, "tetas");
+    char* encryptedMessage = malloc(sizeof(char) * 120);
+    encryptedMessage = encryptWithVigenereCipher(key,message);
+    char* decryptedMessage = malloc(sizeof(char) * 120);
+    decryptedMessage = decryptWithVigenereCipher(key, encryptedMessage);
+    
+    printf("Encriptada : %s \n\n Decriptada : %s \n",encryptedMessage,decryptedMessage);
     
 }
