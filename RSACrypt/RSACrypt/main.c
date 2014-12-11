@@ -132,14 +132,9 @@ int* encryptMessage(char *messageToEncrypt, int publicKey, int setLength){
     
     
     for (int i = 0; messageToEncrypt[i] ; i++) {
-        
-    //    if( (messageToEncrypt[i] >= 'a' && messageToEncrypt[i] <= 'z') || (messageToEncrypt[i] >= 'A' && messageToEncrypt[i] <= 'Z') ){
             
             encryptedMessage[i] = cipherChar(messageToEncrypt[i], publicKey, setLength) ;
-            
-//        }else{
-//                encryptedMessage[i] = messageToEncrypt[i];
-//        }
+        
             }
     
     return encryptedMessage;
@@ -172,7 +167,6 @@ char *decryptMessage(int* messageToDecrypt, int privateKey, int setLength){
     return decryptedMessage;
 }
 
-//Corrigir bug do -2
 void printMessage(int* message){
     
     for (int i = 0; message[i] ; i++) {
@@ -210,8 +204,7 @@ int main(int argc, const char * argv[]) {
     char* decrypted = decryptMessage(encrypted, privateKey, setLength);
     
    printf("%s",decrypted);
-   // printf("\n\n");
-    //printMessage(decrypted);
+
     
     return 0;
 }
