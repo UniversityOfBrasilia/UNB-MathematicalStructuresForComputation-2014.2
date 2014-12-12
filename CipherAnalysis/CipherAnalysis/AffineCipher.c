@@ -53,7 +53,7 @@ char* encryptWithAffineCipher(int encryptKeyA, int encryptKeyB , char* messageTo
     
     int menssageToEncryptLength = (int)strlen(messageToEncrypt);
     
-    char* encryptedMessage = malloc(sizeof (char)*(menssageToEncryptLength+1));
+    char* encryptedMessage = (char*)malloc(sizeof (char)*(menssageToEncryptLength+1));
     
     for (int i = 0; i < menssageToEncryptLength; i++) {
         
@@ -79,7 +79,7 @@ char* decryptWithAffineCipher(int descryptKeyA, int descryptKeyB, char* messageT
 
     int menssageToDecryptLength = (int)strlen(messageToDecrypt);
     
-    char* decryptedMessage = malloc(sizeof (char)*(menssageToDecryptLength+1));
+    char* decryptedMessage = (char*)malloc(sizeof (char)*(menssageToDecryptLength+1));
     
     for (int i = 0; i < menssageToDecryptLength; i++) {
         
@@ -112,7 +112,7 @@ char* decryptWithAffineCipher(int descryptKeyA, int descryptKeyB, char* messageT
 
 void hackingAffineCipherWithBruteForce(char* messageToHack){
     
-    char* hackedMessageTest = malloc (sizeof(char) * (strlen(messageToHack) +1));
+    char* hackedMessageTest = (char*)malloc (sizeof(char) * (strlen(messageToHack) +1));
 
     clock_t start_time;
     start_time = clock();
