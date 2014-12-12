@@ -27,6 +27,7 @@
 		A460CA311A3374AF0042E27E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		A460CA381A3374C80042E27E /* CaesarCipher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CaesarCipher.c; sourceTree = "<group>"; };
 		A460CA391A3374C80042E27E /* VigenereCipher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VigenereCipher.c; sourceTree = "<group>"; };
+		A4C4FAF91A3A974E005650C6 /* AffineCipher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AffineCipher.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 				A460CA311A3374AF0042E27E /* main.c */,
 				A460CA381A3374C80042E27E /* CaesarCipher.c */,
 				A460CA391A3374C80042E27E /* VigenereCipher.c */,
+				A4C4FAF91A3A974E005650C6 /* AffineCipher.c */,
 			);
 			path = CipherAnalysis;
 			sourceTree = "<group>";
@@ -241,6 +243,7 @@
 				A460CA371A3374AF0042E27E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
