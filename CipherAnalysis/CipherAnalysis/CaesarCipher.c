@@ -38,7 +38,7 @@ char* encryptWithCaesarCipher(int encryptKey, char* messageToEncrypt){
     
     int menssageToEncryptLength = (int)strlen(messageToEncrypt);
     
-    char* encryptedMessage = malloc(sizeof (char)*(menssageToEncryptLength+1));
+    char* encryptedMessage = (char*) malloc(sizeof (char)*(menssageToEncryptLength+1));
     
     for (int i = 0; i < menssageToEncryptLength; i++) {
         
@@ -64,7 +64,7 @@ char* decryptWithCaesarCipher(int decryptKey, char* messageToDecrypt){
 
     int menssageToDecryptLength = (int)strlen(messageToDecrypt);
     
-    char* decryptedMessage = malloc(sizeof (char)*(menssageToDecryptLength+1));
+    char* decryptedMessage = (char*) malloc(sizeof (char)*(menssageToDecryptLength+1));
     
     for (int i = 0; i < menssageToDecryptLength; i++) {
         
@@ -97,7 +97,7 @@ char* decryptWithCaesarCipher(int decryptKey, char* messageToDecrypt){
 
 void hackingCaesarCipherWithBruteForce(char* messageToHack){
     
-    char* hackedMessageTest = malloc (sizeof(char) * (strlen(messageToHack) +1));
+    char* hackedMessageTest = (char*) malloc (sizeof(char) * (strlen(messageToHack) +1));
 
     clock_t start_time;
     start_time = clock();

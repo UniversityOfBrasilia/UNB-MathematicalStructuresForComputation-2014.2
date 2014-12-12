@@ -16,7 +16,7 @@ char* encryptWithVigenereCipher(char* key, char* messageToEncrypt){
     
     int currentKey;
     char currentChar;
-    char *encryptedMessage = malloc(sizeof(char) * messageToEncryptLength);
+    char *encryptedMessage = (char*) malloc(sizeof(char) * messageToEncryptLength);
 
     for (int messageCharPosition = 0, keyCharPosition = 0; messageCharPosition < messageToEncryptLength; messageCharPosition++,keyCharPosition++) {
         
@@ -40,7 +40,7 @@ char* decryptWithVigenereCipher(char* key, char* messageToDecrypt){
     
     int currentKey;
     char currentChar;
-    char *decryptedMessage = malloc(sizeof(char) * messageToDecryptLength);
+    char *decryptedMessage = (char*) malloc(sizeof(char) * messageToDecryptLength);
     
     for (int messageCharPosition = 0, keyCharPosition = 0; messageCharPosition < messageToDecryptLength; messageCharPosition++,keyCharPosition++) {
         
@@ -66,9 +66,9 @@ void vigenereCipherInterface(char *message){
     scanf("%s",key);
     
     
-    char* encryptedMessage = malloc(sizeof(char) * 120);
+    char* encryptedMessage = (char*) malloc(sizeof(char) * 120);
     encryptedMessage = encryptWithVigenereCipher(key,message);
-    char* decryptedMessage = malloc(sizeof(char) * 120);
+    char* decryptedMessage = (char*) malloc(sizeof(char) * 120);
     decryptedMessage = decryptWithVigenereCipher(key, encryptedMessage);
     
     printf("Encriptada : %s \n\n Decriptada : %s \n",encryptedMessage,decryptedMessage);
