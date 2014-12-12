@@ -6,6 +6,41 @@
 
 #define ALPHABETRANGE 26
 
+//O operador de módulo do C (operador %) computa apenas o resto da divisão e gera números negativos. Entao Nesta versão em C deve-se fazer uma pequena correção na resposta dada pelo operador de módulo, pois o algoritmo de euclides precisa do módulo positivo.
+int module(int firstFactor, int secondFactor)
+{
+    
+    int residue = firstFactor % secondFactor;
+    
+    /* Uma correçã é necessária se r e b não forem do mesmo sinal */
+    
+    /* se r for negativo e b positivo, precisa corrigir */
+    if ((residue < 0) && (secondFactor > 0))
+        return (secondFactor + residue);
+    
+    /* Se ra for positivo e b negativo, nova correcao */
+    if ((residue > 0) && (secondFactor < 0))
+        return (secondFactor + residue);
+    
+    return (residue);
+}
+
+//The euclides extended algorithm calc the inverse of firstFactor MOD(secondFactor)
+int euclidesExtendedAlgorithm(int firstFactor, int secondFactor, int inverse)
+{
+    int residue;
+    
+    residue = module(secondFactor, firstFactor);
+    
+    if (residue == 0) {
+        return (module((inverse / firstFactor), (secondFactor / firstFactor)));
+    }
+    
+    return ((euclidesExtendedAlgorithm(residue, firstFactor, -inverse) * secondFactor + inverse) / (module(firstFactor, secondFactor)));
+}
+
+
+
 int getKeyValueByChars(char keyB){
     
     int keyValueB;
@@ -58,11 +93,11 @@ char* encryptWithAffineCipher(int encryptKeyA, int encryptKeyB , char* messageTo
     for (int i = 0; i < menssageToEncryptLength; i++) {
         
         if( messageToEncrypt[i] >= 'a' && messageToEncrypt[i] <= 'z'){
-            encryptedMessage[i] = (((messageToEncrypt[i]- 'a')*encryptKeyA+encryptKeyB)%ALPHABETRANGE)+'a';
+            encryptedMessage[i] = ((((messageToEncrypt[i]- 'a')*encryptKeyA)+encryptKeyB)%ALPHABETRANGE)+'a';
 
            }else
                 if (messageToEncrypt[i] >= 'A' && messageToEncrypt[i] <= 'Z'){
-                    encryptedMessage[i] = (((messageToEncrypt[i]- 'A')*encryptKeyA+encryptKeyB)%ALPHABETRANGE)+'A';
+                    encryptedMessage[i] = ((((messageToEncrypt[i]- 'A')*encryptKeyA)+encryptKeyB)%ALPHABETRANGE)+'A';
                 }else{
                     
                     encryptedMessage[i] = messageToEncrypt[i];
@@ -84,15 +119,18 @@ char* decryptWithAffineCipher(int descryptKeyA, int descryptKeyB, char* messageT
     for (int i = 0; i < menssageToDecryptLength; i++) {
         
         if( messageToDecrypt[i] >= 'a' && messageToDecrypt[i] <= 'z'){
-           decryptedMessage[i] = (((messageToDecrypt[i]-'a'-descryptKeyB)/descryptKeyA)%ALPHABETRANGE)+'a';
+            
+            
+            
+           decryptedMessage[i] = ((descryptKeyA*(messageToDecrypt[i] - 'a' - descryptKeyB))%ALPHABETRANGE)+'a';
             
             if (decryptedMessage[i] < 'a') {
                 decryptedMessage[i] = 'a' + ALPHABETRANGE - ('a' - decryptedMessage[i]);
             }
-            
+        
            }else
            if (messageToDecrypt[i] >= 'A' && messageToDecrypt[i] <= 'Z'){
-                decryptedMessage[i] = (((messageToDecrypt[i]-'A'-descryptKeyB)/descryptKeyA)%ALPHABETRANGE)+'A';
+                decryptedMessage[i] = ((descryptKeyA*(messageToDecrypt[i] - 'A' - descryptKeyB))%ALPHABETRANGE)+'A';
                
                if (decryptedMessage[i] < 'A') {
                    decryptedMessage[i] = 'A' + ALPHABETRANGE - ('A' - decryptedMessage[i]);
@@ -141,21 +179,36 @@ void affineCipherInterface(char* text){
     
     int keyA;
     char keyB;
-    printf("\nEntre com a chave A (número) e a chave B (letra) de criptografia: ");
-    fflush(stdin);
-    scanf("%d%c",&keyA, &keyB);
+    
+    printf("\nEntre com a chave B (letra) de criptografia: ");
+    scanf("%c",&keyB);
+    
+    printf("\nEntre com a chave A (número)");
+    scanf("%d",&keyA);
     
     while (!validationKeyA(keyA)){
-    	printf("Chave A invalida. Entre novamente com a chave A: ");
-    	scanf("%d", &keyA);
-	}
+        printf("Chave A invalida. Entre novamente com a chave A: ");
+        fflush(stdin);
+        scanf("%d", &keyA);
+    }
+    
+
+    
+
     int keyValueB = getKeyValueByChars(keyB);
+
     
+    char *encryptedMessage = encryptWithAffineCipher(keyA, keyValueB, text);
+    printf("\nEncrypted %s\n",encryptedMessage);
     
-    char *encryptedMessage;
+    int decryptKeyA = euclidesExtendedAlgorithm(keyA, ALPHABETRANGE, 1);
+    printf("decrypt : %d\n",decryptKeyA);
+
     
-    encryptedMessage = encryptWithAffineCipher(keyA, keyValueB, text);
-    hackingAffineCipherWithBruteForce(encryptedMessage);
+    char *decryptedMessage = decryptWithAffineCipher(decryptKeyA, keyValueB, encryptedMessage);
+    printf("\nDecrypted %s",decryptedMessage);
+    
+   // hackingAffineCipherWithBruteForce(encryptedMessage);
     
 }
 
