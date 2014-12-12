@@ -128,7 +128,7 @@ int* encryptMessage(char *messageToEncrypt, int publicKey, int setLength){
     
     int messageToCryptLength = (int)strlen(messageToEncrypt) ;
     
-    int *encryptedMessage = malloc(sizeof (int) * (messageToCryptLength) * 200 );
+    int *encryptedMessage = (int*) malloc(sizeof (int) * (messageToCryptLength) * 200 );
     
     
     for (int i = 0; messageToEncrypt[i] ; i++) {
@@ -155,7 +155,7 @@ char *decryptMessage(int* messageToDecrypt, int privateKey, int setLength){
     
     int messageToDecryptLength = sizeof(messageToDecrypt) ;
     
-    char *decryptedMessage = malloc(sizeof (char) * (messageToDecryptLength)  );
+    char *decryptedMessage = (char*) malloc(sizeof (char) * (messageToDecryptLength)  );
     
     
     for (int i = 0; messageToDecrypt[i]; i++) {
