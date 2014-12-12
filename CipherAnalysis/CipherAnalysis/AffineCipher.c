@@ -155,13 +155,13 @@ void hackingAffineCipherWithBruteForce(char* messageToHack){
     clock_t start_time;
     start_time = clock();
     
-    for (int i = 0; i <= ALPHABETRANGE; i++) {
+    for (int i = 0; i < ALPHABETRANGE; i++) {
         
-        for (int j = 0; j<= ALPHABETRANGE; j++){
+        for (int j = 0; j < ALPHABETRANGE; j++){
         	
         	if(validationKeyA(j) && j > 0){
         		hackedMessageTest = decryptWithAffineCipher(j, i, messageToHack);
-        		printf("\nChave Testada = %c,\nResultado = %s",i+'A',hackedMessageTest);
+        		printf("\nChaves Testada KeyA = %d e KeyB = %c,\nResultado = %s",j,i+'A',hackedMessageTest);
         		printf("\n\n=========================================================\n\n");
         	}
 		}
@@ -205,10 +205,7 @@ void affineCipherInterface(char* text){
     printf("decrypt : %d\n",decryptKeyA);
 
     
-    char *decryptedMessage = decryptWithAffineCipher(decryptKeyA, keyValueB, encryptedMessage);
-    printf("\nDecrypted %s",decryptedMessage);
-    
-   // hackingAffineCipherWithBruteForce(encryptedMessage);
+    hackingAffineCipherWithBruteForce(encryptedMessage);
     
 }
 
